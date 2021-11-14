@@ -1,0 +1,10 @@
+li {
+  padding: 10px 5px;
+  background-color: khaki;
+  height: calc(100% - 20px);
+}
+
+li span {
+  margin-right: 5px;
+  font-weight: 700;
+}

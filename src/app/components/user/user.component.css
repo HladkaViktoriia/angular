@@ -1,0 +1,11 @@
+li {
+  text-align: center;
+  padding: 10px 5px;
+  background-color: khaki;
+  height: calc(100% - 20px);
+}
+
+.user-name {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
