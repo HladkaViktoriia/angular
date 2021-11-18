@@ -1,6 +1,9 @@
+.users {
+  display: flex;
+}
 ul {
   padding: 0;
-  margin: 0 auto;
-  max-width: 1100px;
+  margin: -20px 0 0;
+  flex-grow: 1;
   list-style: none;
 }

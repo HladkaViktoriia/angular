@@ -1,0 +1,13 @@
+.user-details {
+  margin-left: 20px;
+  background-color: peachpuff;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+.user-details__name {
+  font-weight: 700;
+  border-bottom: 1px solid #000;
+  margin-bottom: 15px;
+}

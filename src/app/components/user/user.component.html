@@ -1,5 +1,4 @@
 <li>
   {{user.name}}
-
-  <app-posts [id]="user.id"></app-posts>
+  <button (click)="navTo(user.id)">details</button>
 </li>
