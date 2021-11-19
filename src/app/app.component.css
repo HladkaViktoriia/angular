@@ -2,3 +2,13 @@ h1 {
   margin: 20px 0;
   text-align: center;
 }
+.link {
+  text-decoration: none;
+  display: block;
+  max-width: max-content;
+  margin: 0 auto 30px;
+  padding: 5px 10px;
+  background-color: darksalmon;
+  color: #000;
+  font-weight: 700;
+}

@@ -7,6 +7,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,9 @@ import { PostComponent } from './components/post/post.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'users-with-posts', component: UsersComponent}
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
