@@ -1,0 +1,24 @@
+<h3>form 1</h3>
+<form #tref (ngSubmit)="save(tref)">
+  <input type="text" name="username" [(ngModel)]="user.username">
+  <input type="password" name="password" [(ngModel)]="user.password">
+  <button>save</button>
+</form>
+
+<h3>form 2</h3>
+<form [formGroup]="myForm">
+  <input type="text" formControlName="name">
+  <input type="text" formControlName="age">
+  <span
+    *ngIf="myForm.controls['name'].errors?.['minlength']">{{myForm.controls['name'].errors?.['minlength']|json}}</span>
+  <button (click)="save2()" [disabled]="myForm.invalid">save</button>
+</form>
+
+<h3>form 3</h3>
+<form [formGroup]="myForm2" (change)="showDetails()">
+  <select formControlName="userId">
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+  </select>
+</form>
+
+<router-outlet></router-outlet>

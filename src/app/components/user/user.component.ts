@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 
-import {IUser} from "../../models/IUser";
+import {IUser} from "../../interfaces";
 
 @Component({
   selector: 'app-user',
@@ -9,14 +9,15 @@ import {IUser} from "../../models/IUser";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  @Input()
   user: IUser;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router) {
+    this.activatedRoute.params.subscribe(value => {
+      this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
+    })
+  }
 
-  ngOnInit(): void { }
-
-  navTo(id: number) {
-    this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user});
+  ngOnInit(): void {
   }
 }

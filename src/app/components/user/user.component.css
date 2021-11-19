@@ -1,18 +1,9 @@
-li {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 2px solid indianred;
-  font-weight: 700;
-  text-transform: uppercase;
-  background-color: peachpuff;
-  margin-top: 20px;
+.user {
+  max-width: 550px;
+  padding: 0 10px;
+  margin: 0 auto;
 }
-button {
-  outline: none;
-  background-color: indianred;
-  padding: 5px;
-  border: none;
-  margin-left: auto;
-  cursor: pointer;
+.user div {
+  margin-bottom: 10px;
+  padding: 0 10px;
 }
