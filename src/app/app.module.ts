@@ -5,17 +5,22 @@ import {Route, RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
-import {FormsComponent, PostComponent, PostsComponent, UserComponent, UsersComponent} from "./components";
+import {
+  FormsComponent,
+  PostComponent,
+  PostsComponent,
+  UserComponent,
+  UsersComponent,
+} from "./components";
 import { HomeComponent } from './components/home/home.component';
 import {TestGuard} from "./guards/test.guard";
-import {UserResolveService, UsersResolveService} from "./services";
+import {UserResolveService} from "./services";
 
 const routes: Route[] = [
   // {path: '', redirectTo: 'posts', pathMatch: 'full'},
   {path: '', component: HomeComponent, children: [
-      {path: 'users', component: UsersComponent, children: [
-          {path: ':id', component: UserComponent, resolve: {data: UserResolveService}}
-        ]},
+      {path: 'users', component: UsersComponent},
+      {path: 'users/:id', component: UserComponent, resolve: {data: UserResolveService}},
       {path: 'posts', component: PostsComponent, canActivate: [TestGuard]},
     ]},
 ];

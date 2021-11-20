@@ -1,26 +1,30 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 
 import {IUser} from "../../interfaces";
+import {ActivatedRoute} from "@angular/router";
+import {UsersService} from "../../services";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   @Input()
   user: IUser;
+  isIdParams: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private router: Router) {
-    // this.activatedRoute.params.subscribe(value => {
-    //   this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
-    // })
-
+              private userService: UsersService) {
     this.activatedRoute.data.subscribe(value => this.user = value['data'])
-  }
 
-  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      const {id} = params;
+
+      if (id) {
+        userService.getUser(id).subscribe(value => this.user = value);
+        this.isIdParams = true;
+      }
+    })
   }
 }

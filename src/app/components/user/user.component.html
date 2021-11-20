@@ -3,6 +3,6 @@
   <div>{{user?.name}}</div>
   <div>{{user?.username}}</div>
   <div>{{user?.email}}</div>
-
-  <app-posts [idUser]="user?.id"></app-posts>
 </div>
+
+<app-posts *ngIf="isIdParams" [idUser]="user?.id"></app-posts>
