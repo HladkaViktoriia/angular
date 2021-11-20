@@ -15,4 +15,8 @@ export class UsersService {
   getUsers() :Observable <IUser[]> {
     return this.httpClient.get <IUser[]> (urls.users);
   }
+
+  getUser(id: number) :Observable <IUser> {
+    return this.httpClient.get <IUser> (urls.user(id));
+  }
 }

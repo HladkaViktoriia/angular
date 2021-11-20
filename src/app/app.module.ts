@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 import {FormsComponent, PostComponent, PostsComponent, UserComponent} from "./components";
 import { HomeComponent } from './components/home/home.component';
 import {TestGuard} from "./guards/test.guard";
+import {UserResolveService} from "./services/user-resolve.service";
 
 const routes: Route[] = [
   // {path: '', redirectTo: 'posts', pathMatch: 'full'},
   {path: '', component: HomeComponent, children: [
-      {path: 'users/:name', component: UserComponent},
+      {path: 'users/:id', component: UserComponent, resolve: {data: UserResolveService}},
       {path: 'posts', component: PostsComponent, canActivate: [TestGuard]},
     ]},
 ];

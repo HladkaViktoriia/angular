@@ -16,6 +16,8 @@ export class UserComponent implements OnInit {
     this.activatedRoute.params.subscribe(value => {
       this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
     })
+
+    this.activatedRoute.data.subscribe(value => this.user = value['data'])
   }
 
   ngOnInit(): void {

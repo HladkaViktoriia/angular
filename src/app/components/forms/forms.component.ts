@@ -52,7 +52,6 @@ export class FormsComponent implements OnInit {
     const id = this.myForm2.controls['userId'].value;
     this.userDetails = this.users[id-1];
 
-    const name = this.userDetails.name.replace(/ /g, "_");
-    this.router.navigate(['users', name], {state: this.userDetails})
+    this.router.navigate(['users', id], {state: this.userDetails})
   }
 }
