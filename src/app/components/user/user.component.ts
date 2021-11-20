@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 
 import {IUser} from "../../interfaces";
@@ -9,13 +9,14 @@ import {IUser} from "../../interfaces";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  @Input()
   user: IUser;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router) {
-    this.activatedRoute.params.subscribe(value => {
-      this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
-    })
+    // this.activatedRoute.params.subscribe(value => {
+    //   this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
+    // })
 
     this.activatedRoute.data.subscribe(value => this.user = value['data'])
   }
