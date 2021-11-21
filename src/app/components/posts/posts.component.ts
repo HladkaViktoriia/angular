@@ -20,5 +20,6 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.postService.getPosts().subscribe(value => this.posts = value);
   }
 }
