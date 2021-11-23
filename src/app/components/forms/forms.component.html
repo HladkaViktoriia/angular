@@ -15,8 +15,8 @@
 </form>
 
 <h3>form 3</h3>
-<form [formGroup]="myForm2" (change)="showDetails()">
-  <select formControlName="userId">
+<form [formGroup]="myForm2">
+  <select formControlName="userId" ngModel (ngModelChange)="showDetails()">
     <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
   </select>
 </form>
