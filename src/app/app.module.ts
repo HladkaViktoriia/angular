@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './components/users/users.component';
-import { UserComponent } from './components/user/user.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { PostComponent } from './components/post/post.component';
 import {RouterModule} from "@angular/router";
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { PostDetailsComponent } from './components/post-details/post-details.component';
-import {PostResolveService} from "./services/post-resolve.service";
+import {
+  PostComponent,
+  PostDetailsComponent,
+  PostsComponent,
+  UserComponent,
+  UserDetailsComponent,
+  UsersComponent
+} from "./components";
+import {ObjectTransformationPipe} from "./pipes";
+import {PostResolveService} from "./services";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import {PostResolveService} from "./services/post-resolve.service";
     PostsComponent,
     PostComponent,
     UserDetailsComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    ObjectTransformationPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import {PostResolveService} from "./services/post-resolve.service";
         ]},
     ]),
   ],
-  providers: [],
+  providers: [
+    ObjectTransformationPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

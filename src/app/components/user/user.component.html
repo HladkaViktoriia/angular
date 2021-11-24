@@ -1,4 +1,4 @@
 <li>
-  {{user.name}}
-  <button (click)="navTo(user.id)">details</button>
+  {{user|objectTransformation}}
+  <button (click)="navTo(user.id)" *ngIf="getIdUser()">details</button>
 </li>
