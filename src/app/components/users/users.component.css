@@ -1,9 +1,0 @@
-.users {
-  display: flex;
-}
-ul {
-  padding: 0;
-  margin: -20px 0 0;
-  flex-grow: 1;
-  list-style: none;
-}

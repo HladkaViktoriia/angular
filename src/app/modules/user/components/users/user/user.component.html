@@ -1,0 +1,6 @@
+<li class="user">
+  <div>{{user?.id}}. {{user?.username}}</div>
+  <div>{{user?.name}} - {{user?.email}}</div>
+
+  <button (click)="navTo(user.id)" *ngIf="getIdUser()">details</button>
+</li>

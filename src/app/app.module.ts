@@ -3,44 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import {RouterModule} from "@angular/router";
-import {
-  PostComponent,
-  PostDetailsComponent,
-  PostsComponent,
-  UserComponent,
-  UserDetailsComponent,
-  UsersComponent
-} from "./components";
 import {ObjectTransformationPipe} from "./pipes";
-import {PostResolveService} from "./services";
+import {HomeComponent} from "./components";
+import {UserModule} from "./modules/user/user.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    PostsComponent,
-    PostComponent,
-    UserDetailsComponent,
-    PostDetailsComponent,
-    ObjectTransformationPipe
+    ObjectTransformationPipe,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {
-        path: 'users',
-        component: UsersComponent,
-        children: [
-          {path: ':id', component: UserDetailsComponent}
-        ]},
-      {path: 'posts', component: PostsComponent,
-        children: [
-          {path: ':id', component: PostDetailsComponent, resolve: {data: PostResolveService}}
-        ]},
-    ]),
+    AppRoutingModule,
+    UserModule,
   ],
   providers: [
     ObjectTransformationPipe

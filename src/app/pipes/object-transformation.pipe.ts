@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {IUser} from "../models";
+import {IUser} from "../interface";
 
 @Pipe({
   name: 'objectTransformation'
