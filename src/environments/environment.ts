@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://jsonplaceholder.typicode.com',
+  API: 'http://91.201.233.14/api/v1',
 };
 
 /*

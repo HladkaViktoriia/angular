@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import {ObjectTransformationPipe} from "./pipes";
-import {HomeComponent} from "./components";
-import {UserModule} from "./modules/user/user.module";
-import {AppRoutingModule} from "./app-routing.module";
+import {MainInterceptor} from "./main.interceptor";
+import {HeaderComponent, HomeComponent, LoginComponent} from "./components";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ObjectTransformationPipe,
     HomeComponent,
+    HeaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UserModule,
+    ReactiveFormsModule,
   ],
   providers: [
-    ObjectTransformationPipe
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: MainInterceptor,
+    }
   ],
   bootstrap: [AppComponent]
 })
